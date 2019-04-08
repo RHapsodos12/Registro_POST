@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-
+                    Toast.makeText(getApplicationContext(),
+                            "Error de autentificación", Toast.LENGTH_SHORT).show();
                 }
             },
                 new Response.ErrorListener() {
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
 
                         Toast.makeText(getApplicationContext(),
-                                "No se ha podido registrar", Toast.LENGTH_SHORT).show();
+                                "No se ha podido registrar"+error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }){
