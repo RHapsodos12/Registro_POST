@@ -12,11 +12,14 @@ import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.io.StringReader;
 import java.util.HashMap;
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     EditText txtUser, txtNames, txtPwd;
     Button btnReg;
+
+    //RequestQueue rq;
+    //JsonRequest jrq;
 
     String url="http://santacruza.proyectosutd.com/login/registrar_post.php";
 
@@ -116,5 +122,8 @@ public class MainActivity extends AppCompatActivity {
                     return params;
                 }
             };
+
+            RequestQueue request = Volley.newRequestQueue(getApplicationContext());
+            request.add(sr);
     }
 }
